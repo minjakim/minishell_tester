@@ -1,0 +1,123 @@
+Signals
+kill 명령어로 minishell에 시그널 보내 보기
+ps로 minishell pid 찾아서 인자로 넣어 줘야합니다.
+kill -SIGINT 
+kill -SIGQUIT
+
+Single Quotes
+echo ''
+ls ''
+echo '$USER'
+echo test '> hello'
+echo test '>> hello'
+echo hello > hello && cat '< hello'
+echo merry christmas '| cat'
+echo 'loooooo                                                     ooooong'
+
+Quotes
+echo $USER "$USER" '$USER' $USER"$USER"'$USER'
+
+Env
+env
+env | grep USER
+env | grep PWD
+env | sed s/=.*//g
+env | sed s/.*=//g
+
+Export
+export hello=world
+expoet marry=christmas
+export spiderman=no_way_home
+export mini
+export mini=
+export mini=mac
+export mini+=mini
+export mini=minion
+export mini=
+export a
+export _
+export 1
+export a1
+export 1 2 3 4 5 6  7 8  9 0
+
+Unset
+unset hello=world
+unset hello=
+unset hello
+unset christmas
+unset marry
+unset spiderman
+
+export hello=world
+expoet marry=christmas
+export spiderman=no_way_home
+unset hello marry spiderman
+
+unset a
+unset _
+unset 1
+unset a1
+unset 1 2 3 4 5 6 7 8 9 0
+
+Relative Path
+eval/path에서 테스트
+
+./ft_echo
+./1/ft_echo
+./2/ft_echo
+./3/ft_echo
+./4/ft_echo
+./5/ft_echo
+./6/ft_echo
+cd 1
+./ft_echo
+../ft_echo
+../2/ft_echo
+../2/../3/../6/../4/ft_echo
+
+Enviroment Path
+eval/path 에서테스트
+
+path 변수에 eval/path 절대경로를 값으로 넣기
+unset PATH
+export PATH=path && ft_echo
+export PATH=path/1 && ft_echo
+export PATH=path/2 && ft_echo
+export PATH=path/3 && ft_echo
+export PATH=path/4 && ft_echo
+export PATH=path/5 && ft_echo
+export PATH=path/6 && ft_echo
+export PATH=path/6:path/1 && ft_echo
+export PATH=path/1:path/4 && ft_echo
+export PATH=: && ft_echo
+cd 4 && ft_echo &&cd ..
+
+Redirection
+echo hello > hi
+cat < hi
+echo world > hi
+cat<hi
+echo reset > hi && cat hi
+cat << eof >> hi
+echo << 1 << 2 << 3 << 4 << 5 << 6 << 7 << 8 << 9 << 10 << 11 << 12 << 13 << 14 << 15 << 16
+echo << 1 << 2 << 3 << 4 << 5 << 6 << 7 << 8 << 9 << 10 << 11 << 12 << 13 << 14 << 15 << 16 << 17
+
+Pipes
+echo hello | cat
+env | grep PWD
+ls | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat
+
+Go Crazy and history
+echo hello world merry christmas hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christma hello world merry christmassssssssssssssss
+
+Enviroment Variables
+echo $
+echo $$$$$$$$$$$$
+echo $$$$?$!
+
+
+Surprise
+echo " '$USER' "
+echo ' "$USER" '
+echo " "$USER" "
+echo ' '$USER' '
