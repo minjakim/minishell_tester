@@ -118,6 +118,10 @@ test 'exit 999999'
 test 'exit 999999999999999'
 test 'exit 000000000000000'
 test 'exit 3.141592'
+test 'exit 259'
+test 'exit +++1234'
+test 'exit ----1234'
+test 'exit "11"32'
 
 pt "Return value of a process"
 test '/bin/ls'
@@ -150,10 +154,15 @@ test 'echo $USER'
 test 'echo $HOME'
 test 'echo $USER.qwe'
 test 'echo $USERqwe'
+test 'echo $"USER"'
+test 'echo " %"USER'
+test 'echo $?$?$?$?$?$?$'
+
 
 pt "Export"
 test 'export zz zzz= zzzz=asd && echo $zz$zzz$zzzz'
 test 'export zz && export zz && export'
+test 'export zz=hello && echo $zz && export zz+=" world" && echo $zz'
 
 pt "Bonus"
 
