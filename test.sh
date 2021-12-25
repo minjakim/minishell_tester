@@ -58,7 +58,7 @@ function test()
 	if [ "$MINI" != "$BASH" ]; then
 		nl 2
 		printf $BOLDRED"Your output : \n%.20s\n$BOLDRED$MINI\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
-		printf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASHn%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
+		printf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASH%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
 	fi
 	if [ "$MINI_ES" != "$BASH_ES" ]; then
 		nl 2
@@ -94,6 +94,14 @@ test 'echo hello world merry christmas'
 test 'echo hllo           world             merry                                           christmas'
 test 'echo -n hello              world                      merry                     christmas'
 test 'echo "hello"world"'"merry"'"christmase'
+test 'echo $USER "" $USER'
+test 'echo $USERr $HOME1'
+
+test 'echo -n -n hello'
+test 'echo -nnnnnnnnnnnnnnnnnnnnnnnnnn hello'
+test 'echo "           hello         "' 
+test 'echo "-n    -n" hello'
+test 'echo $USER=4'
 
 pt "exit"
 test 'exit'
@@ -142,6 +150,10 @@ test 'echo $USER'
 test 'echo $HOME'
 test 'echo $USER.qwe'
 test 'echo $USERqwe'
+
+pt "Export"
+test 'export zz zzz= zzzz=asd && echo $zz$zzz$zzzz'
+test 'export zz && export zz && export'
 
 pt "Bonus"
 
