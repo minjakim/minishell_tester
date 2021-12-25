@@ -19,8 +19,8 @@ BOLDMAGENTA="\033[1m\033[35m"
 BOLDCYAN="\033[1m\033[36m"
 BOLDWHITE="\033[1m\033[37m"
 
-make -C ../ > /dev/null
-chmod 755 ../minishell
+make -C ../in_progress/ > /dev/null
+chmod 755 ../in_progress/minishell
 
 function nl()
 {
@@ -45,7 +45,7 @@ function pt()
 
 function test()
 {
-	MINI=$(../minishell -c "$1" )
+	MINI=$(../in_progress/minishell -c "$1" )
 	MINI_ES=$?
 	BASH=$(/bin/bash -c "$1" )
 	BASH_ES=$?
@@ -56,15 +56,14 @@ function test()
 	fi
 	printf "$CYAN \"$1\" $RESET"
 	if [ "$MINI" != "$BASH" ]; then
-		nl 2
+		nl 1
 		printf $BOLDRED"Your output : \n%.20s\n$BOLDRED$MINI\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
 		printf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASH\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
 	fi
 	if [ "$MINI_ES" != "$BASH_ES" ]; then
-		nl 2
+		nl 1
 		printf $BOLDRED"Your exit status : $BOLDRED$MINI_ES$RESET\n"
 		printf $BOLDGREEN"Expected exit status : $BOLDGREEN$BASH_ES$RESET\n"
 	fi
-	nl 2
-	sleep 1
+	nl 1
 }
