@@ -19,8 +19,8 @@ BOLDMAGENTA="\033[1m\033[35m"
 BOLDCYAN="\033[1m\033[36m"
 BOLDWHITE="\033[1m\033[37m"
 
-make -C ../in_progress/ > /dev/null
-chmod 755 ../in_progress/minishell
+make -C ../ > /dev/null
+chmod 755 ../minishell
 
 function nl()
 {
@@ -45,7 +45,7 @@ function pt()
 
 function test()
 {
-	MINI=$(../in_progress/minishell -c "$1" )
+	MINI=$(../minishell -c "$1" )
 	MINI_ES=$?
 	BASH=$(/bin/bash -c "$1" )
 	BASH_ES=$?
