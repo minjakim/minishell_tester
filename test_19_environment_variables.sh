@@ -1,1 +1,1 @@
-
+source ./test.sh
