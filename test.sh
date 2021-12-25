@@ -77,12 +77,14 @@ test '/bin/echo'
 test '/bin/pwd'
 test '/bin/date'
 
+
 pt "Arguments & history"
 test '/bin/ls /'
 test '/bin/ls .'
 test '/bin/ls ..'
 test '/bin/echo hello'
 test '/bin/echo world'
+
 
 pt "echo"
 test 'echo'
@@ -96,12 +98,12 @@ test 'echo -n hello              world                      merry               
 test 'echo "hello"world"'"merry"'"christmase'
 test 'echo $USER "" $USER'
 test 'echo $USERr $HOME1'
-
 test 'echo -n -n hello'
 test 'echo -nnnnnnnnnnnnnnnnnnnnnnnnnn hello'
 test 'echo "           hello         "'
 test 'echo "-n    -n" hello'
 test 'echo $USER=4'
+
 
 pt "exit"
 test 'exit'
@@ -127,17 +129,22 @@ test 'exit 1 | exit 2'
 test 'exit a | exit 1 1'
 
 
+
 pt "Return value of a process"
 test '/bin/ls'
 test 'qqq'
 test '*/'
 test '/bin/ls qqweqweqeqweqq'
 
+
+
 pt 'Double Quotes'
 test 'echo "cat lol.c | cat > lol.c"'
 test 'echo "hello                                                              world"'
 test 'echo               "hello"                                               "world"'
 test '"echo" hello'
+
+
 
 pt "cd"
 test 'cd . && pwd '
@@ -149,11 +156,13 @@ test 'cd qwe'
 test 'unset OLDPWD && cd -'
 test 'unset HOME && cd'
 
+
+
 pt "Redirects"
 test '> hello && ls | grep hello'
 test '< hello'
-
 test 'echo hello > 1 > 2 > 3 > 4 > 5 && cat 1 2 3 4 5 && rm 1 2 3 4 5'
+
 
 
 pt "Pipes"
@@ -168,6 +177,7 @@ test 'echo hello > tmp1 | cat '
 test 'echo hi | cat < tmp1'
 
 
+
 pt "Enviroment Variable"
 test 'echo $USER'
 test 'echo $HOME'
@@ -178,10 +188,13 @@ test 'echo " %"USER'
 test 'echo $?$?$?$?$?$?$'
 
 
+
 pt "Export"
 test 'export zz zzz= zzzz=asd && echo $zz$zzz$zzzz'
 test 'export zz && export zz && export'
 test 'export zz=hello && echo $zz && export zz+=" world" && echo $zz'
+
+
 
 pt "Bonus"
 
@@ -190,6 +203,8 @@ test 'echo hello && echo world'
 test 'echo hello || echo world'
 test '42 && echo 42 is command'
 test '42 || echo 42 is not command'
+
+
 
 pt "WildCard"
 test 'echo *'
