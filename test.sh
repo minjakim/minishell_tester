@@ -122,6 +122,10 @@ test 'exit 259'
 test 'exit +++1234'
 test 'exit ----1234'
 test 'exit "11"32'
+test 'exit | exit'
+test 'exit 1 | exit 2'
+test 'exit a | exit 1 1'
+
 
 pt "Return value of a process"
 test '/bin/ls'
@@ -145,9 +149,24 @@ test 'cd qwe'
 test 'unset OLDPWD && cd -'
 test 'unset HOME && cd'
 
+pt "Redirects"
+test '> hello && ls | grep hello'
+test '< hello'
+
+test 'echo hello > 1 > 2 > 3 > 4 > 5 && cat 1 2 3 4 5 && rm 1 2 3 4 5'
+
+
 pt "Pipes"
 test 'echo hello | cat'
 test 'env | gerp PWD'
+test '|'
+test '||'
+test '||||||||'
+test '|echo hello'
+test 'echo neko | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat'
+test 'echo hello > tmp1 | cat '
+test 'echo hi | cat < tmp1'
+
 
 pt "Enviroment Variable"
 test 'echo $USER'
