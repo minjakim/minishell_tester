@@ -1,3 +1,4 @@
+#!/bin/bash
 source ./test.sh
 
 pt "Arguments & history"
