@@ -45,11 +45,22 @@ function pt()
 
 function test()
 {
-	MINI=$(../minishell -c "$1" )
+	MINI=$(../minishell -c "$1")
 	MINI_ES=$?
-	BASH=$(bash -c "$1" )
+	BASH=$(bash -c "$1")
 	BASH_ES=$?
 	if [ "$MINI" == "$BASH" ] && [ "$MINI_ES" == "$BASH_ES" ]; then
+		printf " $BOLDGREEN%s$RESET" "✓ "
+	else
+		printf " $BOLDRED%s$RESET" "✗ "
+	fi
+	if [ "$MINI_ES" == "0" ]; then
+		LEAKS=$(../minishell -c "$1 && leaks minishell" 2>/dev/null)
+	else
+		LEAKS=$(../minishell -c "$1 || leaks minishell" 2>/dev/null)
+	fi
+	LEAKS_ES=$?
+	if [ "$LEAKS_ES" == "0" ]; then
 		printf " $BOLDGREEN%s$RESET" "✓ "
 	else
 		printf " $BOLDRED%s$RESET" "✗ "
