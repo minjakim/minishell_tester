@@ -54,6 +54,17 @@ function test()
 	else
 		printf " $BOLDRED%s$RESET" "✗ "
 	fi
+	if [ "$MINI_ES" == "0" ]; then
+		LEAKS=$(../minishell -c "$1 && leaks minishell")
+	else
+		LEAKS=$(../minishell -c "$1 || leaks minishell")
+	fi
+	LEAKS_ES=$?
+	if [ "$LEAKS_ES" == "0" ]; then
+		printf " $BOLDGREEN%s$RESET" "✓ "
+	else
+		printf " $BOLDRED%s$RESET" "✗ "
+	fi
 	printf "$CYAN \"$1\" $RESET"
 	if [ "$MINI" != "$BASH" ]; then
 		nl 1
