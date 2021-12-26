@@ -2,6 +2,7 @@
 source ./test.sh
 
 pt "Export"
+test 'export hello && export | grep'
 test 'export hello=world && env | grep hello'
 test 'export merry=christmas && env | grep merry'
 test 'export spiderman=no_way_home && env | grep spiderman'

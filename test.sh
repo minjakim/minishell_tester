@@ -47,7 +47,7 @@ function test()
 {
 	MINI=$(../minishell -c "$1" )
 	MINI_ES=$?
-	BASH=$(/bin/bash -c "$1" )
+	BASH=$(bash -c "$1" )
 	BASH_ES=$?
 	if [ "$MINI" == "$BASH" ] && [ "$MINI_ES" == "$BASH_ES" ]; then
 		printf " $BOLDGREEN%s$RESET" "✓ "
