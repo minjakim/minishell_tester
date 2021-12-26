@@ -17,47 +17,6 @@ echo 'loooooo                                                     ooooong'
 Quotes
 echo $USER "$USER" '$USER' $USER"$USER"'$USER'
 
-Env
-env
-env | grep USER
-env | grep PWD
-env | sed s/=.*//g
-env | sed s/.*=//g
-
-Export
-export hello=world
-expoet marry=christmas
-export spiderman=no_way_home
-export mini
-export mini=
-export mini=mac
-export mini+=mini
-export mini=minion
-export mini=
-export a
-export _
-export 1
-export a1
-export 1 2 3 4 5 6  7 8  9 0
-
-Unset
-unset hello=world
-unset hello=
-unset hello
-unset christmas
-unset marry
-unset spiderman
-
-export hello=world
-expoet marry=christmas
-export spiderman=no_way_home
-unset hello marry spiderman
-
-unset a
-unset _
-unset 1
-unset a1
-unset 1 2 3 4 5 6 7 8 9 0
 
 Relative Path
 eval/path에서 테스트
