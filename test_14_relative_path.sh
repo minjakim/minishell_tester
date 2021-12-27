@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt 'Relative Path'
+pt "relative_path"
 test "cd path && ./ft_echo"
 test "cd path && ./1/ft_echo"
 test "cd path && ./2/ft_echo"
