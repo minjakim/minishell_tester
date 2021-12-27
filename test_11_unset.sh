@@ -5,10 +5,11 @@ pt "unset"
 test 'unset a'
 test 'unset A'
 test 'unset _'
-test "export hello=world && unset hello && export | grep hello"
-test "unset hello= || export | grep hello"
-test "unset hello=world || export | grep hello"
-test 'export hello=world marry=christmas happy=newyear && unset hello marry happy && echo $hello$marry$happy'
+test 'unset nonimihello= nonimihello nonimihello'
+test "export nominihello=world && unset nominihello && export | grep nominihello || env | grep nominihello"
+test "unset nominihello= || export | grep nominihello"
+test "unset nominihello=world || export | grep nominihello"
+test 'export nominihello=world nominimarry=christmas nominihappy=newyear && unset nominihello nominimarry nominihappy && echo $nominihello$nominimarry$nominihappy'
 test 'export a=a && unset a && echo $a'
 test 'export a=a a a= a && unset a && echo $a'
 test 'unset = + += ? 1'
