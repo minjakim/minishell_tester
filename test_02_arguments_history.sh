@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt 'arguments_history'
+pt "arguments_history"
 test '/bin/ls /'
 test '/bin/ls .'
 test '/bin/ls ..'
