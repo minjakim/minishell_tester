@@ -55,9 +55,9 @@ function test()
 		printf " $BOLDRED%s$RESET" "✗ "
 	fi
 	if [ "$MINI_ES" == "0" ]; then
-		LEAKS=$(../minishell -c "$1 && leaks minishell" 2>/dev/null)
+		LEAKS=$(../minishell -c "$1 && /usr/bin/leaks minishell" 2>/dev/null)
 	else
-		LEAKS=$(../minishell -c "$1 || leaks minishell" 2>/dev/null)
+		LEAKS=$(../minishell -c "$1 || /usr/bin/leaks minishell" 2>/dev/null)
 	fi
 	LEAKS_ES=$?
 	if [ "$LEAKS_ES" == "0" ]; then
