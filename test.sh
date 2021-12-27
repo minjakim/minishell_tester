@@ -32,7 +32,7 @@ function nl()
 
 function pf()
 {
-	printf $@
+	printf $*
 }
 
 function pt()
@@ -50,9 +50,9 @@ function test()
 	BASH=$(bash -c "$1")
 	BASH_ES=$?
 	if [ "$MINI" == "$BASH" ] && [ "$MINI_ES" == "$BASH_ES" ]; then
-		printf " $BOLDGREEN%s$RESET" "✓ "
+		pf " $BOLDGREEN%s$RESET" "✓ "
 	else
-		printf " $BOLDRED%s$RESET" "✗ "
+		pf " $BOLDRED%s$RESET" "✗ "
 	fi
 	if [ "$MINI_ES" == "0" ]; then
 		LEAKS=$(../minishell -c "$1 && /usr/bin/leaks minishell" 2>/dev/null)
@@ -61,20 +61,20 @@ function test()
 	fi
 	LEAKS_ES=$?
 	if [ "$LEAKS_ES" == "0" ]; then
-		printf " $BOLDGREEN%s$RESET" "✓ "
+		pf " $BOLDGREEN%s$RESET" "✓ "
 	else
-		printf " $BOLDRED%s$RESET" "✗ "
+		pf " $BOLDRED%s$RESET" "✗ "
 	fi
 	printf "$CYAN \"$1\" $RESET"
 	if [ "$MINI" != "$BASH" ]; then
 		nl 1
-		printf $BOLDRED"Your output : \n%.20s\n$BOLDRED$MINI\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
-		printf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASH\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
+		pf $BOLDRED"Your output : \n%.20s\n$BOLDRED$MINI\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
+		pf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASH\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
 	fi
 	if [ "$MINI_ES" != "$BASH_ES" ]; then
 		nl 1
-		printf $BOLDRED"Your exit status : $BOLDRED$MINI_ES$RESET\n"
-		printf $BOLDGREEN"Expected exit status : $BOLDGREEN$BASH_ES$RESET\n"
+		pf $BOLDRED"Your exit status : $BOLDRED$MINI_ES$RESET\n"
+		pf $BOLDGREEN"Expected exit status : $BOLDGREEN$BASH_ES$RESET\n"
 	fi
 	nl 1
 }
@@ -86,20 +86,20 @@ function test_exit()
 	BASH=$(bash -c "$1")
 	BASH_ES=$?
 	if [ "$MINI" == "$BASH" ] && [ "$MINI_ES" == "$BASH_ES" ]; then
-		printf " $BOLDGREEN%s$RESET" "✓ "
+		pf " $BOLDGREEN%s$RESET" "✓ "
 	else
-		printf " $BOLDRED%s$RESET" "✗ "
+		pf " $BOLDRED%s$RESET" "✗ "
 	fi
 	printf "$CYAN \"$1\" $RESET"
 	if [ "$MINI" != "$BASH" ]; then
 		nl 1
-		printf $BOLDRED"Your output : \n%.20s\n$BOLDRED$MINI\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
-		printf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASH\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
+		pf $BOLDRED"Your output : \n%.20s\n$BOLDRED$MINI\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
+		pf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASH\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
 	fi
 	if [ "$MINI_ES" != "$BASH_ES" ]; then
 		nl 1
-		printf $BOLDRED"Your exit status : $BOLDRED$MINI_ES$RESET\n"
-		printf $BOLDGREEN"Expected exit status : $BOLDGREEN$BASH_ES$RESET\n"
+		pf $BOLDRED"Your exit status : $BOLDRED$MINI_ES$RESET\n"
+		pf $BOLDGREEN"Expected exit status : $BOLDGREEN$BASH_ES$RESET\n"
 	fi
 	nl 1
 }
