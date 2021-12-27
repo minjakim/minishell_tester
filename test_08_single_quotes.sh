@@ -2,8 +2,8 @@
 source ./test.sh
 
 pt "single_quotes"
-#제대로 동작 안함
-test `echo ''`
+
+#test `echo ''`
 #test "ls \'\'"
 #test "echo \''$USER''\'"
 
