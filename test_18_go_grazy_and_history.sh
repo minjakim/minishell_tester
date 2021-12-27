@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt "Go Crazy and history"
+pt "go_crazy_and_history"
 
 test "echo 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42"
 
