@@ -18,7 +18,7 @@ test 'cd nonefile && echo .*'
 test 'cd nonefile && echo */'
 test 'cd nonefile && cat < *' 
 test 'cd nonefile && echo hello world > * && cat < *' 
-rm -rf nonefile
+rm -r nonefile
 
 mkdir onefile
 echo onefile only > onefile/file
@@ -29,7 +29,7 @@ test 'cd onefile && echo new text > * && cat < * && echo next line > * && cat < 
 test 'cd onefile && echo new text > one* && cat < one* && echo next line > one* && cat < one* && > *'
 test 'cd onefile && echo new file > new* && cat < new* && ls | grep new* && rm new*'
 
-rm -rf onefile
+rm -r onefile
 
 mkdir manyfiles
 cd manyfiles
@@ -45,7 +45,7 @@ test 'cd manyfiles && echo hello < *head'
 test 'cd manyfiles && echo hello < body*'
 test 'cd manyfiles && echo hello < *tail*'
 
-rm -rf manyfiles
+rm -r manyfiles
 
 echo
 echo "추가 테스트를 하신다면 wildcard 디렉토리로 가보세요"
