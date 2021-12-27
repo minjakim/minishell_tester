@@ -78,3 +78,28 @@ function test()
 	fi
 	nl 1
 }
+
+function test_exit()
+{
+	MINI=$(../minishell -c "$1")
+	MINI_ES=$?
+	BASH=$(bash -c "$1")
+	BASH_ES=$?
+	if [ "$MINI" == "$BASH" ] && [ "$MINI_ES" == "$BASH_ES" ]; then
+		printf " $BOLDGREEN%s$RESET" "✓ "
+	else
+		printf " $BOLDRED%s$RESET" "✗ "
+	fi
+	printf "$CYAN \"$1\" $RESET"
+	if [ "$MINI" != "$BASH" ]; then
+		nl 1
+		printf $BOLDRED"Your output : \n%.20s\n$BOLDRED$MINI\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
+		printf $BOLDGREEN"Expected output : \n%.20s\n$BOLDGREEN$BASH\n%.20s$RESET\n" "-----------------------------------------" "-----------------------------------------"
+	fi
+	if [ "$MINI_ES" != "$BASH_ES" ]; then
+		nl 1
+		printf $BOLDRED"Your exit status : $BOLDRED$MINI_ES$RESET\n"
+		printf $BOLDGREEN"Expected exit status : $BOLDGREEN$BASH_ES$RESET\n"
+	fi
+	nl 1
+}
