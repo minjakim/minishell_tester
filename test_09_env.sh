@@ -2,4 +2,4 @@
 source ./test.sh
 
 pt "env"
-test "env"
+test 'env | grep SHLVL'
