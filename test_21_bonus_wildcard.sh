@@ -1,7 +1,7 @@
 #/bin/bash
 source ./test.sh
 
-pt "WildCard"
+pt "bonus_wildcard"
 test 'echo .*'
 test 'echo *helloworld'
 test '> *helloworld && ls | grep *helloworld && rm *helloworld'
