@@ -2,14 +2,13 @@
 source ./test.sh
 
 pt "05_return_value_of_a_process"
+test_leaks 'echo hello world'
 test_leaks '/bin/ls /'
 test_leaks '/bin/ls .'
 test_leaks '/bin/ls ..'
 test_leaks '/bin/ls /bin'
-test_leaks '/bin/cat ./test_02_arguments_history.sh'
-test_leaks '/bin/echo hello'
-test_leaks '/bin/echo world'
 test_leaks '/bin/ls not_a_path'
+test_leaks '/bin/cat ./test_02_arguments_history.sh'
 test_leaks '/bin/cat not_a_file'
 test_leaks 'echo $? + $?'
 test_leaks 'commandnotfound'

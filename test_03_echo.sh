@@ -17,8 +17,3 @@ test_leaks 'echo -nnnnnnnnnnnnnnnnnnnnnnnnnn hello'
 test_leaks 'echo "-n    -n" hello'
 test_leaks 'echo "hello"world"'"merry"'"christmase'
 test_leaks 'echo "           hello         "'
-
-test_leaks 'unset ABC && /bin/echo "a" $ABC "a" $ABC "a"'
-test_leaks 'unset ABC && /bin/echo ABC=4 $ABC "a"'
-
-test_leaks 'export ABC="a              b              c" && echo $ABC'
