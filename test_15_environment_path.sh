@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt "Environment Path"
+pt "environment_path"
 test "unset PATH && ls"
 test "unset PATH && pwd"
 test "cd path && unset PATH && ./ft_echo"
