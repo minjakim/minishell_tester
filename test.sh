@@ -39,7 +39,7 @@ function pt()
 {
 	clear
 	nl 2
-	printf $@
+	printf $*
 	nl 2
 }
 
@@ -79,7 +79,7 @@ function test()
 	nl 1
 }
 
-function test_exit()
+function test_noleaks()
 {
 	MINI=$(../minishell -c "$1")
 	MINI_ES=$?
