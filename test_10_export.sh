@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt "Export"
+pt "export"
 test 'export nominihello && export | grep nominihello'
 test 'export nominihello && env | grep nominihello'
 test 'export nominihello && env | grep nominihello || export nominihello= && env | grep nominihello'
