@@ -39,7 +39,7 @@ function pt()
 {
 	clear
 	nl 2
-	printf $1
+	printf $@
 	nl 2
 }
 
