@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt "simple Command"
+pt "simple_command_global"
 test '/bin/ls'
 test '/bin/echo'
 test '/bin/pwd'
