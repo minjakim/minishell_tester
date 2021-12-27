@@ -1,8 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt 'Double Quotes'
-
+pt "double_quotes"
 test 'echo "cat lol.c | cat > lol.c"'
 test 'echo "hello " " world"'
 test 'echo "hello "           " world"'
