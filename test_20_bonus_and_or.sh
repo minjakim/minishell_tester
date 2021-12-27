@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt "And, Or"
+pt "bonus_and_or"
 test 'true && echo and and'
 test 'false && echo and and'
 test 'true || echo or or'
