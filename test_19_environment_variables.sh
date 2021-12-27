@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt "Enviroment Variable"
+pt "enviroment_variable"
 test 'export ABC=abc && echo $ABC'
 test 'export ABC=abc && echo $ABC "" $ABC'
 test 'export ABC=abc && echo ABC=4 $ABC'
