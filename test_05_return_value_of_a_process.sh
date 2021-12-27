@@ -1,7 +1,7 @@
 #!/bin/bash
 source ./test.sh
 
-pt "Return value of a process"
+pt "return_value_of_a_process"
 test '/bin/ls /'
 test '/bin/ls .'
 test '/bin/ls ..'
@@ -12,3 +12,9 @@ test '/bin/echo world'
 test '/bin/ls not_a_path'
 test '/bin/cat not_a_file'
 test 'echo $? + $?'
+test 'commandnotfound'
+test './etc dir'
+test './README.md pemission'
+test '>'
+test 'unset ABC && >$ABC'
+test_exit 'exit hello'
