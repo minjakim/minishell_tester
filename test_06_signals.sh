@@ -1,7 +1,8 @@
 #!/bin/bash
 source ./test.sh
 
-echo "직접 테스트 해야합니다"
+pt "06_signals"
+echo " 직접 테스트 해야합니다"
 echo "	prompt 비워진 상태에서"
 echo "		ctrl + C"
 echo '		ctrl + \'

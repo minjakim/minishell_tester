@@ -1,15 +1,15 @@
 #!/bin/bash
 source ./test.sh
 
-pt "simple_command_global"
+pt "01_simple_command_global"
 
-test '/bin/ls'
-test '/bin/echo'
-test '/bin/pwd'
-test '/bin/hostname'
-test '/usr/bin/alias'
-test '/usr/bin/w'
-test '/usr/bin/whoami'
-test ''
-test '             '
-test '              '
+test_leaks '/bin/ls'
+test_leaks '/bin/echo'
+test_leaks '/bin/pwd'
+test_leaks '/bin/hostname'
+test_leaks '/usr/bin/alias'
+test_leaks '/usr/bin/w'
+test_leaks '/usr/bin/whoami'
+test_only ''
+test_only '             '
+test_only '              '

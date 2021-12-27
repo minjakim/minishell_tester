@@ -43,7 +43,7 @@ function pt()
 	nl 2
 }
 
-function test()
+function test_leaks()
 {
 	MINI=$(../minishell -c "$1")
 	MINI_ES=$?
@@ -79,7 +79,7 @@ function test()
 	nl 1
 }
 
-function test_noleaks()
+function test_only()
 {
 	MINI=$(../minishell -c "$1")
 	MINI_ES=$?

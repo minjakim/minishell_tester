@@ -1,11 +1,11 @@
 #!/bin/bash
 source ./test.sh
 
-pt "single_quotes"
+pt "08_single_quotes"
 
-#test `echo ''`
-#test "ls \'\'"
-#test "echo \''$USER''\'"
+#test_leaks `echo ''`
+#test_leaks "ls \'\'"
+#test_leaks "echo \''$USER''\'"
 
 #echo "직접 테스트 해야합니다"
 #echo "echo ''"

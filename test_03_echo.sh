@@ -1,19 +1,24 @@
 #!/bin/bash
 source ./test.sh
 
-pt "echo"
-test 'echo'
-test 'echo hello'
-test 'echo hello world'
-test 'echo merry christmas'
-test 'echo hello world merry christmas'
-test 'echo hello   world      merry     christmas'
-test 'echo -n hello   world      merry     christmas'
-test 'echo -n'
-test 'echo -n -n hello'
-test 'echo -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n'
-test 'echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -nnnnnnnnnnnnnnnn -nn'
-test 'echo -nnnnnnnnnnnnnnnnnnnnnnnnnn hello'
-test 'echo "-n    -n" hello'
-test 'echo "hello"world"'"merry"'"christmase'
-test 'echo "           hello         "'
+pt "03_echo"
+test_leaks 'echo'
+test_leaks 'echo hello'
+test_leaks 'echo hello world'
+test_leaks 'echo merry christmas'
+test_leaks 'echo hello world merry christmas'
+test_leaks 'echo hello   world      merry     christmas'
+test_leaks 'echo -n hello   world      merry     christmas'
+test_leaks 'echo -n'
+test_leaks 'echo -n -n hello'
+test_leaks 'echo -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n -n'
+test_leaks 'echo -nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn -nnnnnnnnnnnnnnnn -nn'
+test_leaks 'echo -nnnnnnnnnnnnnnnnnnnnnnnnnn hello'
+test_leaks 'echo "-n    -n" hello'
+test_leaks 'echo "hello"world"'"merry"'"christmase'
+test_leaks 'echo "           hello         "'
+
+test_leaks 'unset ABC && /bin/echo "a" $ABC "a" $ABC "a"'
+test_leaks 'unset ABC && /bin/echo ABC=4 $ABC "a"'
+
+test_leaks 'export ABC="a              b              c" && echo $ABC'

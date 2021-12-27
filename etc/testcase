@@ -1,15 +1,15 @@
 Signals
 kill 명령어로 minishell에 시그널 보내 보기
 ps로 minishell pid 찾아서 인자로 넣어 줘야합니다.
-kill -SIGINT 
+kill -SIGINT
 kill -SIGQUIT
 
 Single Quotes
 echo ''
 ls ''
 echo '$USER'
-echo test '> hello'
-echo test '>> hello'
+echo test_leaks '> hello'
+echo test_leaks '>> hello'
 echo hello > hello && cat '< hello'
 echo merry christmas '| cat'
 echo 'loooooo                                                     ooooong'

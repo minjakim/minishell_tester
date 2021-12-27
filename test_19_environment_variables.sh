@@ -1,28 +1,29 @@
 #!/bin/bash
 source ./test.sh
 
-pt "enviroment_variable"
-test 'export ABC=abc && echo $ABC'
-test 'export ABC=abc && echo $ABC "" $ABC'
-test 'export ABC=abc && echo ABC=4 $ABC'
-test 'export ABC=abc && echo $ABC=4'
-test 'export ABC=abc && echo $ABC.qwe'
-test 'export ABC=abc && echo $ABCqwe'
-test 'export ABC=abc && echo " $"ABC'
-test 'export ABC=abc && echo "$ABC"'
-test 'export ABC=abc && echo '"'"'$ABC'"'"
-test 'unset ABC && echo $ABC'
-test 'unset ABC && echo $ABC "" $ABC'
-test 'unset ABC && echo ABC=4 $ABC'
-test 'unset ABC && echo $ABC=4'
-test 'unset ABC && echo $ABC.qwe'
-test 'unset ABC && echo $ABCqwe'
-test 'unset ABC && echo " $"ABC'
-test 'unset ABC && echo "$ABC"'
-test 'unset ABC && echo '"'"'$ABC'"'"
-test 'echo $?$?$?$?$?$?$'
-test 'export CMD=echo && $CMD hello'
-test 'export A=a B=b C=c && echo $A$B$C'
-test 'export =a || echo $a'
-test 'echo $'
-test 'echo $?'
+pt "19_enviroment_variable"
+test_leaks 'export ABC=abc && echo $ABC'
+test_leaks 'export ABC=abc && echo $ABC "" $ABC'
+test_leaks 'export ABC=abc && echo ABC=4 $ABC'
+test_leaks 'export ABC=abc && echo $ABC=4'
+test_leaks 'export ABC=abc && echo $ABC.qwe'
+test_leaks 'export ABC=abc && echo $ABCqwe'
+test_leaks 'export ABC=abc && echo " $"ABC'
+test_leaks 'export ABC=abc && echo "$ABC"'
+test_leaks 'export ABC=abc && echo '"'"'$ABC'"'"
+test_leaks 'unset ABC && echo $ABC'
+test_leaks 'unset ABC && echo $ABC=4'
+test_leaks 'unset ABC && echo $ABC.qwe'
+test_leaks 'unset ABC && echo $ABCqwe'
+test_leaks 'unset ABC && echo " $"ABC'
+test_leaks 'unset ABC && echo "$ABC"'
+test_leaks 'unset ABC && echo '"'"'$ABC'"'"
+test_leaks 'echo $?$?$?$?$?$?$'
+test_leaks 'export CMD=echo && $CMD hello'
+test_leaks 'export A=a B=b C=c && echo $A$B$C'
+test_leaks 'export =a || echo $a'
+test_leaks 'echo $'
+test_leaks 'echo $?'
+
+test_leaks 'unset ABC && echo $ABC "" $ABC'
+test_leaks 'unset ABC && echo ABC=4 $ABC'

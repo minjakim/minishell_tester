@@ -1,5 +1,5 @@
 #!/bin/bash
 source ./test.sh
 
-pt "env"
-test 'env | grep SHLVL'
+pt "09_env"
+test_leaks 'env | grep SHLVL'
