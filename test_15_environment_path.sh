@@ -3,6 +3,7 @@ source ./test.sh
 
 pt "15_environment_path"
 test_leaks "unset PATH && ls"
+test_leaks "unset PATH && cat"
 test_leaks "unset PATH && pwd"
 test_leaks "cd etc/path && unset PATH && ft_echo"
 test_leaks 'cd etc/path && unset PATH && export PATH=$PWD && ft_echo'
